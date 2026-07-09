@@ -1,0 +1,42 @@
+name: Release
+
+# Releases are cut manually by pushing a semver tag (e.g. `v1.2.3`).
+# GoReleaser then builds the GitHub Release + changelog per
+# goreleaser.yml. This project is a pure library (builds are skipped),
+# so this workflow only ever produces a GitHub Release with notes — no
+# binaries are attached.
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # goreleaser needs full git history (and all tags) to sort
+          # tags by semver and to build the changelog since the
+          # previous release.
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+          check-latest: true
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v7
+        with:
+          distribution: goreleaser
+          version: "~> v2"
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
