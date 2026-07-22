@@ -1,4 +1,12 @@
+<p align="center">
+  <source media="(prefers-color-scheme: dark)" srcset="images/slog-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="images/slog-light.png">
+  <img alt="Project Logo" src="images/slog-dark.png" width="128">
+</p>
+
 # prettylog
+
+[![Go Version](https://img.shields.io/github/go-mod/go-version/polymorcodeus/prettylog)](https://go.dev/) [![License](https://img.shields.io/github/license/polymorcodeus/prettylog)](./LICENSE) [![Build Status](https://img.shields.io/github/actions/workflow/status/polymorcodeus/prettylog/ci.yml?branch=main)](https://github.com/polymorcodeus/prettylog/actions)
 
 A human-readable, colorized `slog.Handler` for Go.  
 It formats log records as a single line with a timestamp, level, message, and indented JSON attributes, using **24-bit ANSI true-color** via the standard `image/color` package.
