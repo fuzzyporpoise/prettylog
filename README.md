@@ -21,7 +21,7 @@ It formats log records as a single line with a timestamp, level, message, and in
 ## Installation
 
 ```bash
-go get github.com/yourname/prettylog
+go get github.com/polymorcodeus/prettylog
 ```
 
 ## Quick start
@@ -33,7 +33,7 @@ import (
  "log/slog"
  "os"
 
- "github.com/yourname/prettylog"
+ "github.com/polymorcodeus/prettylog"
 )
 
 func main() {
@@ -81,14 +81,16 @@ package main
 import (
  "image/color"
  "log/slog"
+ "os"
 
- "github.com/yourname/prettylog"
+ "github.com/polymorcodeus/prettylog"
 )
 
 func main() {
  handler := prettylog.New(
   &slog.HandlerOptions{Level: slog.LevelDebug},
   prettylog.WithColor(),
+  prettylog.WithDestinationWriter(os.Stdout),
   prettylog.WithCustomColor(prettylog.ColorMap{
    LevelError: color.RGBA{255, 0, 0, 255},   // bright red
    LevelFatal: color.RGBA{148, 0, 211, 255}, // violet
