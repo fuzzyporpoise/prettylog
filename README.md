@@ -21,7 +21,7 @@ It formats log records as a single line with a timestamp, level, message, and in
 ## Installation
 
 ```bash
-go get github.com/polymorcodeus/prettylog
+go get go.fuzzyporpoise.dev/prettylog
 ```
 
 ## Quick start
@@ -33,7 +33,7 @@ import (
  "log/slog"
  "os"
 
- "github.com/polymorcodeus/prettylog"
+ "go.fuzzyporpoise.dev/prettylog"
 )
 
 func main() {
@@ -83,7 +83,7 @@ import (
  "log/slog"
  "os"
 
- "github.com/polymorcodeus/prettylog"
+ "go.fuzzyporpoise.dev/prettylog"
 )
 
 func main() {
